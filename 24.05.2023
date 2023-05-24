@@ -1,0 +1,21 @@
+import hashlib
+
+eingabe = input("Geben Sie den Text ein: ")
+
+hashwert = hashlib.sha3_256(eingabe.encode()).hexdigest()
+
+print("Eingabe:", eingabe)
+print("SHA3-256 Hashwert:", hashwert)
+
+#________________________________________________________________________________________________________
+
+
+import getpass
+import hashlib
+
+eingabe = getpass.getpass("Geben Sie den Text ein: ")
+
+hashwert = hashlib.scrypt(eingabe.encode(), salt=b'', n=16384, r=8, p=1)
+
+print("Eingabe:", eingabe)
+print("scrypt Hashwert:", hashwert.hex())
